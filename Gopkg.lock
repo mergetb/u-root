@@ -203,7 +203,7 @@
     "rfc1035label",
   ]
   pruneopts = "NUT"
-  revision = "1ce66a1a9ded676de3084f912f5f21bb86c9341f"
+  revision = "9d87ca6473c00bfd55aafade7174699209f837fe"
 
 [[projects]]
   branch = "master"
