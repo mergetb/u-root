@@ -20,17 +20,17 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/u-root/u-root/pkg/dhclient"
+	"github.com/mergetb/u-root/pkg/dhclient"
 	"github.com/vishvananda/netlink"
 )
 
 var (
 	ifName  = "^e.*"
-	timeout = flag.Int("timeout", 15, "Lease timeout in seconds")
-	retry   = flag.Int("retry", 5, "Max number of attempts for DHCP clients to send requests. -1 means infinity")
-	verbose = flag.Bool("v", false, "Verbose output")
+	timeout = flag.Int("timeout", 1, "Lease timeout in seconds")
+	retry   = flag.Int("retry", 20, "Max number of attempts for DHCP clients to send requests. -1 means infinity")
+	verbose = flag.Bool("v", true, "Verbose output")
 	ipv4    = flag.Bool("ipv4", true, "use IPV4")
-	ipv6    = flag.Bool("ipv6", true, "use IPV6")
+	ipv6    = flag.Bool("ipv6", false, "use IPV6")
 )
 
 func main() {

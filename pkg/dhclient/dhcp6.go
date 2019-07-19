@@ -9,7 +9,7 @@ import (
 	"net"
 	"net/url"
 
-	"github.com/insomniacslk/dhcp/dhcpv6"
+	"github.com/mergetb/dhcp/dhcpv6"
 	"github.com/vishvananda/netlink"
 )
 
@@ -27,6 +27,7 @@ func NewPacket6(iface netlink.Link, p *dhcpv6.Message) *Packet6 {
 	}
 }
 
+// Link is a link
 func (p *Packet6) Link() netlink.Link {
 	return p.iface
 }

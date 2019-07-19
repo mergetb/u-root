@@ -11,7 +11,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/insomniacslk/dhcp/dhcpv4"
+	"github.com/mergetb/dhcp/dhcpv4"
 	"github.com/vishvananda/netlink"
 )
 
