@@ -22,7 +22,7 @@ ignored = ["github.com/u-root/u-root/bb*"]
 
 [[constraint]]
   branch = "master"
-  name = "github.com/u-root/dhcp4"
+  name = "github.com/mergetb/dhcp"
 
 [prune]
   non-go = true
