@@ -20,10 +20,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/insomniacslk/dhcp/dhcpv4"
-	"github.com/insomniacslk/dhcp/dhcpv4/nclient4"
-	"github.com/insomniacslk/dhcp/dhcpv6"
-	"github.com/insomniacslk/dhcp/dhcpv6/nclient6"
+	"github.com/mergetb/dhcp/dhcpv4"
+	"github.com/mergetb/dhcp/dhcpv4/nclient4"
+	"github.com/mergetb/dhcp/dhcpv6"
+	"github.com/mergetb/dhcp/dhcpv6/nclient6"
 	"github.com/vishvananda/netlink"
 	"golang.org/x/sys/unix"
 )
