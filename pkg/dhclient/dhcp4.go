@@ -11,7 +11,10 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/insomniacslk/dhcp/dhcpv4"
+	// Lincoln: we use our dhcp instead of insomniacs to have
+	// custom dhcp settings + using urand over normal rand
+	// due to devices slowly creating entropy
+	"github.com/mergetb/dhcp/dhcpv4"
 	"github.com/vishvananda/netlink"
 )
 

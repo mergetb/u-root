@@ -1,4 +1,4 @@
-ignored = ["github.com/u-root/u-root/bb*"]
+ignored = ["github.com/mergetb/u-root/bb*"]
 
 [[constraint]]
   branch = "master"
@@ -19,6 +19,10 @@ ignored = ["github.com/u-root/u-root/bb*"]
 [[constraint]]
   branch = "master"
   name = "github.com/rck/unit"
+
+[[constraint]]
+  name = "github.com/mergetb/dhcp"
+  version = "0.1.0"
 
 [prune]
   non-go = true

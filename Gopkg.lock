@@ -65,7 +65,7 @@
   version = "v1.0.2"
 
 [[projects]]
-  digest = "1:bf40199583e5143d1472fc34d10d6f4b69d97572142acf343b3e43136da40823"
+  digest = "1:1d1cbf539d9ac35eb3148129f96be5537f1a1330cadcc7e3a83b4e72a59672a3"
   name = "github.com/google/go-cmp"
   packages = [
     "cmp",
@@ -75,8 +75,8 @@
     "cmp/internal/value",
   ]
   pruneopts = "NUT"
-  revision = "6f77996f0c42f7b84e5a2b252227263f93432e9b"
-  version = "v0.3.0"
+  revision = "2d0692c2e9617365a95b295612ac0d4415ba4627"
+  version = "v0.3.1"
 
 [[projects]]
   digest = "1:28c6f29a00fc674ce801a4e8e10eacdbb49dbe2eea79a2b3d60b405cc0bd2b2d"
@@ -108,7 +108,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:9e9d2460ed0526ccf14606cf378a608a7a1a3c538f368e9989c8e0d70837cf56"
+  digest = "1:d6665dbb035551e36cdabb17705518fada354a3409a248112fb006912de58cec"
   name = "github.com/insomniacslk/dhcp"
   packages = [
     "dhcpv4",
@@ -124,7 +124,7 @@
     "rfc1035label",
   ]
   pruneopts = "NUT"
-  revision = "6d0d21cc633742eb4de9b08ad7a53572a6907623"
+  revision = "393ae75a101b4e8d93f82dd7242401dd50ac0868"
 
 [[projects]]
   branch = "master"
@@ -213,6 +213,21 @@
   revision = "a54781e5f38fd990ef58ac93981e1a9767d39693"
 
 [[projects]]
+  digest = "1:ac29cf28966b1a56c1810b9b926133b29daa85b4bafc3e50af2559fdb4197894"
+  name = "github.com/mergetb/dhcp"
+  packages = [
+    "dhcpv4",
+    "dhcpv4/nclient4",
+    "dhcpv6",
+    "dhcpv6/nclient6",
+    "iana",
+    "rfc1035label",
+  ]
+  pruneopts = "NUT"
+  revision = "34c36a952509cd10ff195b9468dd45a27e2b54ab"
+  version = "v0.1.0"
+
+[[projects]]
   branch = "master"
   digest = "1:6022d8987643a603f69616699ba517019b353c0f6fd521372d465f3acbf081d5"
   name = "github.com/nsf/termbox-go"
@@ -261,15 +276,15 @@
   version = "v1.0.3"
 
 [[projects]]
-  digest = "1:85adecf1dbfae5769cc62a8bcea6498f8e9f0e2452e4e6686eb36fa4428a5a6e"
+  digest = "1:7096df4a9258067bb9ff5da62864a645d38dd94cd3f273ff4ab54d0de548a348"
   name = "github.com/stretchr/testify"
   packages = [
     "assert",
     "require",
   ]
   pruneopts = "NUT"
-  revision = "ffdc059bfe9ce6a4e144ba849dbedead332c6053"
-  version = "v1.3.0"
+  revision = "221dbe5ed46703ee255b1da0dec05086f5035f62"
+  version = "v1.4.0"
 
 [[projects]]
   digest = "1:1cc23d714b88f09aa41060e8a83f40ba5db4f319baed0999aaec5b2c6425528a"
@@ -280,15 +295,123 @@
   version = "v3"
 
 [[projects]]
+  digest = "1:e0a13718a02ac5e59af46fdd534067cf3d573260f4581b9948f30222534877ff"
+  name = "github.com/u-root/u-root"
+  packages = [
+    "cmds/core/elvish/build",
+    "cmds/core/elvish/edit",
+    "cmds/core/elvish/edit/completion",
+    "cmds/core/elvish/edit/eddefs",
+    "cmds/core/elvish/edit/highlight",
+    "cmds/core/elvish/edit/history",
+    "cmds/core/elvish/edit/lastcmd",
+    "cmds/core/elvish/edit/location",
+    "cmds/core/elvish/edit/prompt",
+    "cmds/core/elvish/edit/tty",
+    "cmds/core/elvish/edit/ui",
+    "cmds/core/elvish/eval",
+    "cmds/core/elvish/eval/bundled",
+    "cmds/core/elvish/eval/vals",
+    "cmds/core/elvish/eval/vars",
+    "cmds/core/elvish/getopt",
+    "cmds/core/elvish/glob",
+    "cmds/core/elvish/hash",
+    "cmds/core/elvish/hashmap",
+    "cmds/core/elvish/parse",
+    "cmds/core/elvish/parse/parseutil",
+    "cmds/core/elvish/program",
+    "cmds/core/elvish/program/shell",
+    "cmds/core/elvish/runtime",
+    "cmds/core/elvish/store",
+    "cmds/core/elvish/store/storedefs",
+    "cmds/core/elvish/sys",
+    "cmds/core/elvish/tt",
+    "cmds/core/elvish/util",
+    "cmds/core/elvish/vector",
+    "cmds/core/man/data",
+    "pkg/acpi",
+    "pkg/bb",
+    "pkg/bb/bbmain",
+    "pkg/boot",
+    "pkg/bootconfig",
+    "pkg/booter",
+    "pkg/bzimage",
+    "pkg/checker",
+    "pkg/cmdline",
+    "pkg/complete",
+    "pkg/cp",
+    "pkg/cp/cmp",
+    "pkg/cpio",
+    "pkg/crypto",
+    "pkg/dhclient",
+    "pkg/diskboot",
+    "pkg/dt",
+    "pkg/ebda",
+    "pkg/esxi",
+    "pkg/find",
+    "pkg/forth",
+    "pkg/golang",
+    "pkg/gpt",
+    "pkg/gzip",
+    "pkg/ibft",
+    "pkg/ipxe",
+    "pkg/kexec",
+    "pkg/kmodule",
+    "pkg/ldd",
+    "pkg/less",
+    "pkg/lineio",
+    "pkg/lockfile",
+    "pkg/loop",
+    "pkg/ls",
+    "pkg/memio",
+    "pkg/mount",
+    "pkg/multiboot",
+    "pkg/multiboot/internal/trampoline",
+    "pkg/pci",
+    "pkg/pty",
+    "pkg/pxe",
+    "pkg/qemu",
+    "pkg/rand",
+    "pkg/recovery",
+    "pkg/rtc",
+    "pkg/sh",
+    "pkg/sortedmap",
+    "pkg/storage",
+    "pkg/strace",
+    "pkg/strace/internal/abi",
+    "pkg/strace/internal/binary",
+    "pkg/syslinux",
+    "pkg/tarutil",
+    "pkg/termios",
+    "pkg/testutil",
+    "pkg/ubinary",
+    "pkg/uio",
+    "pkg/urlfetch",
+    "pkg/uroot",
+    "pkg/uroot/builder",
+    "pkg/uroot/initramfs",
+    "pkg/uroot/initramfs/test",
+    "pkg/uroot/logger",
+    "pkg/uroot/util",
+    "pkg/vmtest",
+    "pkg/vmtest/internal/json2test",
+    "pkg/vpd",
+    "pkg/zimage",
+  ]
+  pruneopts = "NUT"
+  revision = "26a90287872f42e357dc889f6918855fc0fde4dc"
+  version = "v6.0.0"
+
+[[projects]]
   branch = "master"
-  digest = "1:badbd25e98974dc2bec0d02dad67a79a74e1e65ef32a423e75fa1fe80aec57dc"
+  digest = "1:dcb8b3c6f62cdbefeabe92dc8d235774ea7efa1333e88d19b7fc3f1da7627fdb"
   name = "github.com/vishvananda/netlink"
   packages = [
     ".",
     "nl",
   ]
   pruneopts = "NUT"
-  revision = "b4e9f47a11c0950050d6c44ef7f0ba09bce6418d"
+  revision = "e825b754c0b186814f7bb2c9e549613d56ff079b"
 
 [[projects]]
   branch = "master"
@@ -335,11 +458,11 @@
     "ipv4",
   ]
   pruneopts = "NUT"
-  revision = "ca1201d0de80cfde86cb01aea620983605dfe99b"
+  revision = "74dc4d7220e7acc4e100824340f3e66577424772"
 
 [[projects]]
   branch = "master"
-  digest = "1:fac91f8c6996469de63f537b598f42d79a915488211fdf18111d9955f4d6d68f"
+  digest = "1:0288cbca859e66ab17946cdba35d3f9f11a4723e2004bfcc5710a08b6e7cd499"
   name = "golang.org/x/sys"
   packages = [
     "cpu",
@@ -347,7 +470,7 @@
     "windows",
   ]
   pruneopts = "NUT"
-  revision = "51ab0e2deafac1f46c46ad59cf0921be2f180c3d"
+  revision = "fde4db37ae7ad8191b03d30d27f258b5291ae4e3"
 
 [[projects]]
   digest = "1:1093f2eb4b344996604f7d8b29a16c5b22ab9e1b25652140d3fede39f640d5cd"
@@ -366,7 +489,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:fb5cf331f3037a2d153a00650e61b4469769d4c93aa1ab479827a8e7fd4a907d"
+  digest = "1:336e9fec64185932477486e128f8ff5ecd737fd2080b0ec7da4417ae89162eb8"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
@@ -383,15 +506,23 @@
     "internal/semver",
   ]
   pruneopts = "NUT"
-  revision = "c5a2fd39b72a2403dae32d544b008ff4973c8b29"
+  revision = "9065c182e3b630a18ed9d858055bd9f0a70e5775"
 
 [[projects]]
   digest = "1:a222e924e8dfeca0eccb0e6e8958d233752df7d52b6996f03df2a13a542c30f4"
   name = "google.golang.org/grpc"
   packages = ["codes"]
   pruneopts = "NUT"
-  revision = "045159ad57f3781d409358e3ade910a018c16b30"
-  version = "v1.22.1"
+  revision = "6eaf6f47437a6b4e2153a190160ef39a92c7eceb"
+  version = "v1.23.0"
+
+[[projects]]
+  digest = "1:18108594151654e9e696b27b181b953f9a90b16bf14d253dd1b397b025a1487f"
+  name = "gopkg.in/yaml.v2"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
 
 [[projects]]
   digest = "1:6889c82820f81a4fc7c707b5ac38e06da0486865ae513b0c33c38bf3b3fc46da"
@@ -418,16 +549,18 @@
     "github.com/google/go-tpm/tpm",
     "github.com/google/goexpect",
     "github.com/insomniacslk/dhcp/dhcpv4",
-    "github.com/insomniacslk/dhcp/dhcpv4/nclient4",
     "github.com/insomniacslk/dhcp/dhcpv4/server4",
     "github.com/insomniacslk/dhcp/dhcpv6",
-    "github.com/insomniacslk/dhcp/dhcpv6/nclient6",
     "github.com/insomniacslk/dhcp/iana",
     "github.com/insomniacslk/dhcp/interfaces",
     "github.com/insomniacslk/dhcp/netboot",
     "github.com/klauspost/pgzip",
     "github.com/kr/pty",
     "github.com/mattn/go-isatty",
+    "github.com/mergetb/dhcp/dhcpv4",
+    "github.com/mergetb/dhcp/dhcpv4/nclient4",
+    "github.com/mergetb/dhcp/dhcpv6",
+    "github.com/mergetb/dhcp/dhcpv6/nclient6",
     "github.com/nsf/termbox-go",
     "github.com/rck/unit",
     "github.com/rekby/gpt",
@@ -436,6 +569,104 @@
     "github.com/stretchr/testify/assert",
     "github.com/stretchr/testify/require",
     "github.com/systemboot/tpmtool/pkg/tpm",
+    "github.com/u-root/u-root/cmds/core/elvish/build",
+    "github.com/u-root/u-root/cmds/core/elvish/edit",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/completion",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/eddefs",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/highlight",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/history",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/lastcmd",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/location",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/prompt",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/tty",
+    "github.com/u-root/u-root/cmds/core/elvish/edit/ui",
+    "github.com/u-root/u-root/cmds/core/elvish/eval",
+    "github.com/u-root/u-root/cmds/core/elvish/eval/bundled",
+    "github.com/u-root/u-root/cmds/core/elvish/eval/vals",
+    "github.com/u-root/u-root/cmds/core/elvish/eval/vars",
+    "github.com/u-root/u-root/cmds/core/elvish/getopt",
+    "github.com/u-root/u-root/cmds/core/elvish/glob",
+    "github.com/u-root/u-root/cmds/core/elvish/hash",
+    "github.com/u-root/u-root/cmds/core/elvish/hashmap",
+    "github.com/u-root/u-root/cmds/core/elvish/parse",
+    "github.com/u-root/u-root/cmds/core/elvish/parse/parseutil",
+    "github.com/u-root/u-root/cmds/core/elvish/program",
+    "github.com/u-root/u-root/cmds/core/elvish/program/shell",
+    "github.com/u-root/u-root/cmds/core/elvish/runtime",
+    "github.com/u-root/u-root/cmds/core/elvish/store",
+    "github.com/u-root/u-root/cmds/core/elvish/store/storedefs",
+    "github.com/u-root/u-root/cmds/core/elvish/sys",
+    "github.com/u-root/u-root/cmds/core/elvish/tt",
+    "github.com/u-root/u-root/cmds/core/elvish/util",
+    "github.com/u-root/u-root/cmds/core/elvish/vector",
+    "github.com/u-root/u-root/cmds/core/man/data",
+    "github.com/u-root/u-root/pkg/acpi",
+    "github.com/u-root/u-root/pkg/bb",
+    "github.com/u-root/u-root/pkg/bb/bbmain",
+    "github.com/u-root/u-root/pkg/boot",
+    "github.com/u-root/u-root/pkg/bootconfig",
+    "github.com/u-root/u-root/pkg/booter",
+    "github.com/u-root/u-root/pkg/bzimage",
+    "github.com/u-root/u-root/pkg/checker",
+    "github.com/u-root/u-root/pkg/cmdline",
+    "github.com/u-root/u-root/pkg/complete",
+    "github.com/u-root/u-root/pkg/cp",
+    "github.com/u-root/u-root/pkg/cp/cmp",
+    "github.com/u-root/u-root/pkg/cpio",
+    "github.com/u-root/u-root/pkg/crypto",
+    "github.com/u-root/u-root/pkg/dhclient",
+    "github.com/u-root/u-root/pkg/diskboot",
+    "github.com/u-root/u-root/pkg/dt",
+    "github.com/u-root/u-root/pkg/ebda",
+    "github.com/u-root/u-root/pkg/esxi",
+    "github.com/u-root/u-root/pkg/find",
+    "github.com/u-root/u-root/pkg/forth",
+    "github.com/u-root/u-root/pkg/golang",
+    "github.com/u-root/u-root/pkg/gpt",
+    "github.com/u-root/u-root/pkg/gzip",
+    "github.com/u-root/u-root/pkg/ibft",
+    "github.com/u-root/u-root/pkg/ipxe",
+    "github.com/u-root/u-root/pkg/kexec",
+    "github.com/u-root/u-root/pkg/kmodule",
+    "github.com/u-root/u-root/pkg/ldd",
+    "github.com/u-root/u-root/pkg/less",
+    "github.com/u-root/u-root/pkg/lineio",
+    "github.com/u-root/u-root/pkg/lockfile",
+    "github.com/u-root/u-root/pkg/loop",
+    "github.com/u-root/u-root/pkg/ls",
+    "github.com/u-root/u-root/pkg/memio",
+    "github.com/u-root/u-root/pkg/mount",
+    "github.com/u-root/u-root/pkg/multiboot",
+    "github.com/u-root/u-root/pkg/multiboot/internal/trampoline",
+    "github.com/u-root/u-root/pkg/pci",
+    "github.com/u-root/u-root/pkg/pty",
+    "github.com/u-root/u-root/pkg/pxe",
+    "github.com/u-root/u-root/pkg/qemu",
+    "github.com/u-root/u-root/pkg/recovery",
+    "github.com/u-root/u-root/pkg/rtc",
+    "github.com/u-root/u-root/pkg/sh",
+    "github.com/u-root/u-root/pkg/sortedmap",
+    "github.com/u-root/u-root/pkg/storage",
+    "github.com/u-root/u-root/pkg/strace",
+    "github.com/u-root/u-root/pkg/strace/internal/abi",
+    "github.com/u-root/u-root/pkg/strace/internal/binary",
+    "github.com/u-root/u-root/pkg/syslinux",
+    "github.com/u-root/u-root/pkg/tarutil",
+    "github.com/u-root/u-root/pkg/termios",
+    "github.com/u-root/u-root/pkg/testutil",
+    "github.com/u-root/u-root/pkg/ubinary",
+    "github.com/u-root/u-root/pkg/uio",
+    "github.com/u-root/u-root/pkg/urlfetch",
+    "github.com/u-root/u-root/pkg/uroot",
+    "github.com/u-root/u-root/pkg/uroot/builder",
+    "github.com/u-root/u-root/pkg/uroot/initramfs",
+    "github.com/u-root/u-root/pkg/uroot/initramfs/test",
+    "github.com/u-root/u-root/pkg/uroot/logger",
+    "github.com/u-root/u-root/pkg/uroot/util",
+    "github.com/u-root/u-root/pkg/vmtest",
+    "github.com/u-root/u-root/pkg/vmtest/internal/json2test",
+    "github.com/u-root/u-root/pkg/vpd",
+    "github.com/u-root/u-root/pkg/zimage",
     "github.com/vishvananda/netlink",
     "golang.org/x/crypto/ed25519",
     "golang.org/x/crypto/md4",

@@ -9,7 +9,7 @@ bazel-*
 /bbsh
 /bb
 /u-root
-!vendor/github.com/u-root
+!vendor/github.com/mergetb
 integration/serial/
 
 # Folders
