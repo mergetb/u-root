@@ -65,6 +65,20 @@
   version = "v1.0.2"
 
 [[projects]]
+  digest = "1:796f9c63c68774a89eade387a8476e45ec2b34f5649b0726983204202c3649d6"
+  name = "github.com/golang/protobuf"
+  packages = [
+    "proto",
+    "ptypes",
+    "ptypes/any",
+    "ptypes/duration",
+    "ptypes/timestamp",
+  ]
+  pruneopts = "NUT"
+  revision = "6c65a5562fc06764971b7c5d05c76c75e84bdbf7"
+  version = "v1.3.2"
+
+[[projects]]
   digest = "1:1d1cbf539d9ac35eb3148129f96be5537f1a1330cadcc7e3a83b4e72a59672a3"
   name = "github.com/google/go-cmp"
   packages = [
@@ -226,6 +240,14 @@
   pruneopts = "NUT"
   revision = "34c36a952509cd10ff195b9468dd45a27e2b54ab"
   version = "v0.1.0"
+
+[[projects]]
+  digest = "1:cde8e298b0cc93ef291f6c9363da37fc69451668202dd3065f0bf74b327ac08e"
+  name = "github.com/mergetb/yaml"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "8c47fc2cb32a40a37eb1aac210fbf255ea755ef8"
+  version = "v3.0.1"
 
 [[projects]]
   branch = "master"
@@ -422,6 +444,14 @@
   revision = "7109fa855b0ff1ebef7fbd2f6aa613e8db7cfbc0"
 
 [[projects]]
+  digest = "1:0e8511cab711b1a09ba669cfacb859f8470e0583aa6ca70a99f4c8174cd49a92"
+  name = "gitlab.com/mergetb/tech/sled"
+  packages = ["pkg"]
+  pruneopts = "NUT"
+  revision = "4ee7a1051487a08d262c292d0d6518f8e8a8917b"
+  version = "v0.4.6"
+
+[[projects]]
   branch = "master"
   digest = "1:bffde63f02a1990954af42b938a41df338158e9a3041518327045549bf1fd885"
   name = "golang.org/x/crypto"
@@ -449,13 +479,20 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:64048d1baf49e847abfcaabab3f17494f07da9b3b82a3d3b16e6ebe50f91baea"
+  digest = "1:635848de33f6904074e42dac60af7467fcd467819ba94c6e09463d41e0ece34f"
   name = "golang.org/x/net"
   packages = [
     "bpf",
+    "context",
+    "http/httpguts",
+    "http2",
+    "http2/hpack",
+    "idna",
     "internal/iana",
     "internal/socket",
+    "internal/timeseries",
     "ipv4",
+    "trace",
   ]
   pruneopts = "NUT"
   revision = "74dc4d7220e7acc4e100824340f3e66577424772"
@@ -473,15 +510,25 @@
   revision = "fde4db37ae7ad8191b03d30d27f258b5291ae4e3"
 
 [[projects]]
-  digest = "1:1093f2eb4b344996604f7d8b29a16c5b22ab9e1b25652140d3fede39f640d5cd"
+  digest = "1:8d8faad6b12a3a4c819a3f9618cb6ee1fa1cfc33253abeeea8b55336721e3405"
   name = "golang.org/x/text"
   packages = [
+    "collate",
+    "collate/build",
+    "internal/colltab",
     "internal/gen",
+    "internal/language",
+    "internal/language/compact",
+    "internal/tag",
     "internal/triegen",
     "internal/ucd",
+    "language",
+    "secure/bidirule",
     "transform",
+    "unicode/bidi",
     "unicode/cldr",
     "unicode/norm",
+    "unicode/rangetable",
   ]
   pruneopts = "NUT"
   revision = "342b2e1fbaa52c93f31447ad2c6abc048c63e475"
@@ -509,9 +556,51 @@
   revision = "9065c182e3b630a18ed9d858055bd9f0a70e5775"
 
 [[projects]]
-  digest = "1:a222e924e8dfeca0eccb0e6e8958d233752df7d52b6996f03df2a13a542c30f4"
+  branch = "master"
+  digest = "1:583a0c80f5e3a9343d33aea4aead1e1afcc0043db66fdf961ddd1fe8cd3a4faf"
+  name = "google.golang.org/genproto"
+  packages = ["googleapis/rpc/status"]
+  pruneopts = "NUT"
+  revision = "fa694d86fc64c7654a660f8908de4e879866748d"
+
+[[projects]]
+  digest = "1:2b6504cfc5fa4bcd1d7df2719fed5ddc24a9f7b69027f2f97f3e784dfdf8aa03"
   name = "google.golang.org/grpc"
-  packages = ["codes"]
+  packages = [
+    ".",
+    "balancer",
+    "balancer/base",
+    "balancer/roundrobin",
+    "binarylog/grpc_binarylog_v1",
+    "codes",
+    "connectivity",
+    "credentials",
+    "credentials/internal",
+    "encoding",
+    "encoding/proto",
+    "grpclog",
+    "internal",
+    "internal/backoff",
+    "internal/balancerload",
+    "internal/binarylog",
+    "internal/channelz",
+    "internal/envconfig",
+    "internal/grpcrand",
+    "internal/grpcsync",
+    "internal/syscall",
+    "internal/transport",
+    "keepalive",
+    "metadata",
+    "naming",
+    "peer",
+    "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
+    "serviceconfig",
+    "stats",
+    "status",
+    "tap",
+  ]
   pruneopts = "NUT"
   revision = "6eaf6f47437a6b4e2153a190160ef39a92c7eceb"
   version = "v1.23.0"
@@ -668,6 +757,7 @@
     "github.com/u-root/u-root/pkg/vpd",
     "github.com/u-root/u-root/pkg/zimage",
     "github.com/vishvananda/netlink",
+    "gitlab.com/mergetb/tech/sled/pkg",
     "golang.org/x/crypto/ed25519",
     "golang.org/x/crypto/md4",
     "golang.org/x/crypto/openpgp",

@@ -24,6 +24,14 @@ ignored = ["github.com/mergetb/u-root/bb*"]
   name = "github.com/mergetb/dhcp"
   version = "0.1.0"
 
+[[override]]
+  name = "gitlab.com/u-root/u-root"
+  version = "6.0.0"
+
+[[override]]
+  name = "gitlab.com/mergetb/tech/sled"
+  version = "0.4.6"
+
 [prune]
   non-go = true
   go-tests = true
