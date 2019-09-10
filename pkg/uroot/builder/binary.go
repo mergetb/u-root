@@ -8,7 +8,6 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/u-root/u-root/pkg/golang"
 	"github.com/u-root/u-root/pkg/uroot/initramfs"
 )
 
@@ -34,9 +33,7 @@ func (BinaryBuilder) Build(af *initramfs.Files, opts Opts) error {
 		go func(p string) {
 			defer wg.Done()
 			result <- opts.Env.Build(
-				p,
-				filepath.Join(opts.TempDir, opts.BinaryDir, filepath.Base(p)),
-				golang.BuildOpts{})
+				p, filepath.Join(opts.TempDir, opts.BinaryDir, filepath.Base(p)))
 		}(pkg)
 	}
 

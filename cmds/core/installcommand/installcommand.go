@@ -167,7 +167,7 @@ func main() {
 		log.Fatalf("Can not find source code for %q", form.cmdName)
 	}
 
-	if err := env.BuildDir(srcDir, destFile, golang.BuildOpts{}); err != nil {
+	if err := env.BuildDir(srcDir, destFile); err != nil {
 		log.Fatalf("Couldn't compile %q: %v", form.cmdName, err)
 	}
 
