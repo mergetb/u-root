@@ -213,12 +213,12 @@ func BuildBusybox(env golang.Environ, pkgs []string, binaryPath string) (nerr er
 		}
 
 		// Compile bb.
-		return env.BuildDir(bbDir, binaryPath, golang.BuildOpts{})
+		return env.BuildDir(bbDir, binaryPath)
 	}
 
 	env.GOPATH = tmpDir
 	// Compile bb.
-	return env.Build("bb", binaryPath, golang.BuildOpts{})
+	return env.Build("bb", binaryPath)
 }
 
 func writeDeps(env golang.Environ, pkgDir string, p *packages.Package) ([]string, string, error) {

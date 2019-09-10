@@ -115,7 +115,7 @@ func run(m *testing.M, mainFn func()) int {
 
 		execPath := filepath.Join(tmpDir, "binary")
 		// Build the stuff.
-		if err := golang.Default().BuildDir(wd, execPath, golang.BuildOpts{}); err != nil {
+		if err := golang.Default().BuildDir(wd, execPath); err != nil {
 			log.Fatal(err)
 		}
 
