@@ -224,7 +224,7 @@ func QEMU(o *Options) (*qemu.Options, string, error) {
 		}
 		// Create a uinit from the commands given.
 		if len(o.Uinit) > 0 {
-			urootPkg, err := o.BuildOpts.Env.Package("github.com/u-root/u-root/integration")
+			urootPkg, err := o.BuildOpts.Env.FindOne("github.com/u-root/u-root/integration")
 			if err != nil {
 				return nil, "", err
 			}
