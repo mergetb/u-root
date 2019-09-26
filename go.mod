@@ -1,0 +1,46 @@
+module github.com/u-root/u-root
+
+go 1.12
+
+require (
+	github.com/anmitsu/go-shlex v0.0.0-20161002113705-648efa622239
+	github.com/beevik/ntp v0.2.0
+	github.com/creack/pty v1.1.7
+	github.com/davecgh/go-spew v1.1.1
+	github.com/dustin/go-humanize v1.0.0
+	github.com/gliderlabs/ssh v0.0.0-20181113160402-cbabf5414432
+	github.com/go-test/deep v1.0.4
+	github.com/google/go-cmp v0.3.1
+	github.com/google/go-tpm v0.2.0
+	github.com/google/goexpect v0.0.0-20190703233430-c416f18ae5af
+	github.com/google/goterm v0.0.0-20190703233501-fc88cf888a3f
+	github.com/insomniacslk/dhcp v0.0.0-20190924073242-939f3325d58b
+	github.com/jsimonetti/rtnetlink v0.0.0-20190830100107-3784a6c7c552
+	github.com/klauspost/compress v1.8.4
+	github.com/klauspost/cpuid v1.2.1
+	github.com/klauspost/pgzip v1.2.1
+	github.com/kr/pty v1.1.8
+	github.com/mattn/go-isatty v0.0.9
+	github.com/mattn/go-runewidth v0.0.4
+	github.com/mdlayher/ethernet v0.0.0-20190606142754-0394541c37b7
+	github.com/mdlayher/netlink v0.0.0-20190906145618-4e5dd4017dae
+	github.com/mdlayher/raw v0.0.0-20190606144222-a54781e5f38f
+	github.com/nsf/termbox-go v0.0.0-20190817171036-93860e161317
+	github.com/pmezard/go-difflib v1.0.0
+	github.com/rck/unit v0.0.2
+	github.com/rekby/gpt v0.0.0-20190209220743-520ac65554cf
+	github.com/safchain/ethtool v0.0.0-20190326074333-42ed695e3de8
+	github.com/spf13/pflag v1.0.5
+	github.com/stretchr/testify v1.4.0
+	github.com/systemboot/tpmtool v0.0.0-20180716200455-304bb9ad19f0
+	github.com/vishvananda/netlink v0.0.0-20190924205746-ac5f4df04742
+	github.com/vishvananda/netns v0.0.0-20190625233234-7109fa855b0f
+	golang.org/x/crypto v0.0.0-20190923035154-9ee001bba392
+	golang.org/x/net v0.0.0-20190923162816-aa69164e4478
+	golang.org/x/sys v0.0.0-20190924154521-2837fb4f24fe
+	golang.org/x/text v0.3.2
+	golang.org/x/tools v0.0.0-20190925020647-22afafe3322a
+	google.golang.org/grpc v1.23.1
+	gopkg.in/yaml.v2 v2.2.2
+	pack.ag/tftp v1.0.0
+)
