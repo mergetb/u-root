@@ -121,6 +121,7 @@ func BuildBusybox(env golang.Environ, pkgs []string, binaryPath string) (nerr er
 	var fpkgs []string
 	seenPackages := make(map[string]struct{})
 	for _, pkg := range pkgs {
+
 		basePkg := path.Base(pkg)
 		if _, ok := seenPackages[basePkg]; ok {
 			return fmt.Errorf("failed to build with bb: found duplicate pkgs %s", basePkg)
@@ -156,6 +157,15 @@ func BuildBusybox(env golang.Environ, pkgs []string, binaryPath string) (nerr er
 	// Add bb to the list of packages that need their dependencies.
 	mainPkgs := append(ps, bb[0])
 
+	var locals []*golang.Package
+	for _, x := range ps {
+		l, err := env.FindOne(x.Pkg.PkgPath)
+		if err != nil {
+			return err
+		}
+		locals = append(locals, l)
+	}
+
 	// Module-enabled Go programs resolve their dependencies in one of two ways:
 	//
 	// - locally, if the dependency is *in* the module
@@ -173,10 +183,11 @@ func BuildBusybox(env golang.Environ, pkgs []string, binaryPath string) (nerr er
 		// Find all dependency packages that are *within* module boundaries for this package.
 		//
 		// writeDeps also copies the go.mod into the right place.
-		mods, modulePath, err := writeDeps(env, pkgDir, p.Pkg)
+		mods, modulePath, err := writeDeps(env, pkgDir, p.Pkg, locals)
 		if err != nil {
 			return fmt.Errorf("resolving dependencies for %q failed: %v", p.Pkg.PkgPath, err)
 		}
+
 		depPkgs = append(depPkgs, mods...)
 		if len(modulePath) > 0 {
 			modulePaths = append(modulePaths, modulePath)
@@ -224,7 +235,7 @@ func BuildBusybox(env golang.Environ, pkgs []string, binaryPath string) (nerr er
 	return env.BuildDir(bbDir, binaryPath)
 }
 
-func writeDeps(env golang.Environ, pkgDir string, p *packages.Package) ([]string, string, error) {
+func writeDeps(env golang.Environ, pkgDir string, p *packages.Package, locals []*golang.Package) ([]string, string, error) {
 	listp, err := env.FindOne(p.PkgPath)
 	if err != nil {
 		return nil, "", err
@@ -244,8 +255,16 @@ func writeDeps(env golang.Environ, pkgDir string, p *packages.Package) ([]string
 		// Collect all "local" dependency packages, to be copied into
 		// the temporary directory structure later.
 		for _, dep := range listp.Deps {
+
+			local := strings.HasPrefix(dep, listp.Module.Path)
+			for _, x := range locals {
+				//local |= strings.HasPrefix(dep, "github.com/u-root/u-root")
+				local = local || strings.HasPrefix(dep, x.Module.Path)
+			}
+
 			// Is this a dependency within the module?
-			if strings.HasPrefix(dep, listp.Module.Path) {
+			//if strings.HasPrefix(dep, listp.Module.Path) {
+			if local {
 				deps = append(deps, dep)
 			}
 		}
