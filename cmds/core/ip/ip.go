@@ -161,6 +161,19 @@ func setHardwareAddress(iface netlink.Link) error {
 	return nil
 }
 
+func setLinkMTU(iface netlink.Link) error {
+	cursor++
+	mtu, err := strconv.ParseUint(arg[cursor], 10, 32)
+	if err != nil {
+		return fmt.Errorf("%v argument %s is wrong: Invalid \"mtu\" value: %v", iface.Attrs().Name, arg[cursor], err)
+	}
+	err = netlink.LinkSetMTU(iface, mtu)
+	if err != nil {
+		return fmt.Errorf("%v cant set link mtu: %v", iface.Attrs().Name, err)
+	}
+	return nil
+}
+
 func linkset() error {
 	iface, err := dev()
 	if err != nil {
@@ -168,10 +181,12 @@ func linkset() error {
 	}
 
 	cursor++
-	whatIWant = []string{"address", "up", "down"}
+	whatIWant = []string{"address", "mtu", "up", "down"}
 	switch one(arg[cursor], whatIWant) {
 	case "address":
 		return setHardwareAddress(iface)
+	case "mtu":
+		return setLinkMTU(iface)
 	case "up":
 		if err := netlink.LinkSetUp(iface); err != nil {
 			return fmt.Errorf("%v can't make it up: %v", iface.Attrs().Name, err)
