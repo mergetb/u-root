@@ -19,6 +19,7 @@ import (
 	"os/exec"
 
 	"github.com/u-root/u-root/pkg/libinit"
+	"github.com/u-root/u-root/pkg/ulog"
 )
 
 // initCmds has all the bits needed to continue
@@ -28,7 +29,7 @@ type initCmds struct {
 }
 
 var (
-	verbose = flag.Bool("v", false, "Enable libinit debugging (includes showing commands that are run)")
+	verbose = flag.Bool("v", true, "Enable libinit debugging (includes showing commands that are run)")
 	test    = flag.Bool("test", false, "Test mode: don't try to set control tty")
 	debug   = func(string, ...any) {}
 )
@@ -57,6 +58,12 @@ func main() {
 
 	libinit.SetEnv()
 	libinit.CreateRootfs()
+	// Route the standard logger to /dev/kmsg so init's progress messages
+	// reach every registered console via printk, not just whichever tty
+	// /dev/console happens to alias on this hardware.
+	if ulog.KernelLog.File != nil {
+		log.SetOutput(ulog.KernelLog.File)
+	}
 	libinit.NetInit()
 
 	// osInitGo wraps all the kernel-specific (i.e. non-portable) stuff.

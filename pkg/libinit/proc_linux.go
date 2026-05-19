@@ -94,12 +94,12 @@ func RunCommands(debug func(string, ...any), commands ...*exec.Cmd) int {
 	var cmdCount int
 	for _, cmd := range commands {
 		if _, err := os.Stat(cmd.Path); os.IsNotExist(err) {
-			debug("%v", err)
+			log.Printf("Stat %s: %v", cmd.Path, err)
 			continue
 		}
 
 		cmdCount++
-		debug("Trying to run %v", cmd)
+		log.Printf("Trying to run %v", cmd)
 		if err := cmd.Start(); err != nil {
 			log.Printf("Error starting %v: %v", cmd, err)
 			continue
@@ -109,12 +109,12 @@ func RunCommands(debug func(string, ...any), commands ...*exec.Cmd) int {
 			var s unix.WaitStatus
 			var r unix.Rusage
 			if p, err := unix.Wait4(-1, &s, 0, &r); p == cmd.Process.Pid {
-				debug("Shell exited, exit status %d", s.ExitStatus())
+				log.Printf("%s exited, exit status %d", cmd.Path, s.ExitStatus())
 				break
 			} else if p != -1 {
-				debug("Reaped PID %d, exit status %d", p, s.ExitStatus())
+				log.Printf("Reaped PID %d, exit status %d", p, s.ExitStatus())
 			} else {
-				debug("Error from Wait4 for orphaned child: %v", err)
+				log.Printf("Error from Wait4 for orphaned child: %v", err)
 				break
 			}
 		}
