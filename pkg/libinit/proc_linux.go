@@ -42,10 +42,10 @@ func WithTTYControl(ctty bool) CommandModifier {
 	}
 }
 
-func WithMultiTTY(mtty bool, openFn func([]string) ([]io.Writer, error), ttyNames []string) CommandModifier {
+func WithMultiTTY(mtty bool, openFn func([]string) ([]*os.File, error), ttyNames []string) CommandModifier {
 	return func(c *exec.Cmd) {
 		if mtty {
-			ww, err := openFn(ttyNames)
+			files, err := openFn(ttyNames)
 			if err != nil {
 				log.Printf("%q: open devices for multi-TTY output: %v", c.Path, err)
 				log.Printf("falling back to default stdout and stderr")
@@ -53,12 +53,22 @@ func WithMultiTTY(mtty bool, openFn func([]string) ([]io.Writer, error), ttyName
 			}
 
 			// If no TTYs are available, just return.
-			if len(ww) == 0 {
+			if len(files) == 0 {
 				return
 			}
 
-			c.Stdout = io.MultiWriter(ww...)
-			c.Stderr = io.MultiWriter(ww...)
+			writers := make([]io.Writer, len(files))
+			for i, f := range files {
+				writers[i] = f
+			}
+			// Point Stdin at the first opened tty so TIOCSCTTY in
+			// the child has a real character device to operate on,
+			// not /dev/console (which on embedded targets without
+			// a framebuffer driver is backed by dummy_con and
+			// returns ENOTTY).
+			c.Stdin = files[0]
+			c.Stdout = io.MultiWriter(writers...)
+			c.Stderr = io.MultiWriter(writers...)
 		}
 	}
 }

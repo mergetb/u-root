@@ -124,44 +124,44 @@ func TestOpenTTYDevices(t *testing.T) {
 	tests := []struct {
 		name      string
 		ttyNames  []string
-		numWriter int
+		numFile int
 		err       error
 	}{
 		{
 			name:      "No TTY devices",
 			ttyNames:  []string{},
 			err:       nil,
-			numWriter: 0,
+			numFile: 0,
 		},
 		{
 			name:      "Single TTY device",
 			ttyNames:  []string{"tty0"},
 			err:       nil,
-			numWriter: 1,
+			numFile: 1,
 		},
 		{
 			name:      "Multiple TTY devices",
 			ttyNames:  []string{"tty0", "ttyS0"},
 			err:       nil,
-			numWriter: 2,
+			numFile: 2,
 		},
 		{
 			name:      "Non-existent TTY device",
 			ttyNames:  []string{"nonexistent"},
 			err:       os.ErrNotExist,
-			numWriter: 0,
+			numFile: 0,
 		},
 		{
 			name:      "Existent and non-existent TTY devices",
 			ttyNames:  []string{"tty0", "nonexistent"},
 			err:       nil,
-			numWriter: 1,
+			numFile: 1,
 		},
 		{
 			name:      "All TTY devices not existent",
 			ttyNames:  []string{"nonexistent1", "nonexistent2"},
 			err:       os.ErrNotExist,
-			numWriter: 0,
+			numFile: 0,
 		},
 	}
 
@@ -178,12 +178,12 @@ func TestOpenTTYDevices(t *testing.T) {
 				}
 			}
 
-			writers, err := openTTYDevices(tmpDir, tt.ttyNames)
+			files, err := openTTYDevices(tmpDir, tt.ttyNames)
 			if !errors.Is(err, tt.err) {
 				t.Errorf("got error %v, want %v", err, tt.err)
 			}
-			if len(writers) != tt.numWriter {
-				t.Errorf("got %d writers, want %d", len(writers), tt.numWriter)
+			if len(files) != tt.numFile {
+				t.Errorf("got %d files, want %d", len(files), tt.numFile)
 			}
 		})
 	}

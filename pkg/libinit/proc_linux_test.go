@@ -5,15 +5,24 @@
 package libinit
 
 import (
-	"bytes"
 	"errors"
-	"io"
+	"os"
 	"os/exec"
 	"reflect"
 	"testing"
 
 	"golang.org/x/sys/unix"
 )
+
+func tempTTYFile(t *testing.T) *os.File {
+	t.Helper()
+	f, err := os.CreateTemp(t.TempDir(), "tty")
+	if err != nil {
+		t.Fatalf("CreateTemp: %v", err)
+	}
+	t.Cleanup(func() { f.Close() })
+	return f
+}
 
 func TestWithTTYControl(t *testing.T) {
 	tests := []struct {
@@ -89,15 +98,15 @@ func TestWithMultiTTY(t *testing.T) {
 	tests := []struct {
 		name      string
 		mtty      bool
-		openFn    func([]string) ([]io.Writer, error)
+		openFn    func([]string) ([]*os.File, error)
 		ttyNames  []string
 		expectErr bool
 	}{
 		{
 			name: "MultiTTY enabled with no writers",
 			mtty: true,
-			openFn: func([]string) ([]io.Writer, error) {
-				return []io.Writer{}, nil
+			openFn: func([]string) ([]*os.File, error) {
+				return []*os.File{}, nil
 			},
 			ttyNames:  nil,
 			expectErr: true,
@@ -105,8 +114,8 @@ func TestWithMultiTTY(t *testing.T) {
 		{
 			name: "MultiTTY enabled with single writer",
 			mtty: true,
-			openFn: func([]string) ([]io.Writer, error) {
-				return []io.Writer{&bytes.Buffer{}}, nil
+			openFn: func([]string) ([]*os.File, error) {
+				return []*os.File{tempTTYFile(t)}, nil
 			},
 			ttyNames:  []string{"tty1"},
 			expectErr: false,
@@ -114,8 +123,8 @@ func TestWithMultiTTY(t *testing.T) {
 		{
 			name: "MultiTTY enabled with multiple writers",
 			mtty: true,
-			openFn: func([]string) ([]io.Writer, error) {
-				return []io.Writer{&bytes.Buffer{}, &bytes.Buffer{}}, nil
+			openFn: func([]string) ([]*os.File, error) {
+				return []*os.File{tempTTYFile(t), tempTTYFile(t)}, nil
 			},
 			ttyNames:  []string{"tty1", "tty2"},
 			expectErr: false,
@@ -123,7 +132,7 @@ func TestWithMultiTTY(t *testing.T) {
 		{
 			name: "MultiTTY enabled with openFn returning error",
 			mtty: true,
-			openFn: func([]string) ([]io.Writer, error) {
+			openFn: func([]string) ([]*os.File, error) {
 				return nil, errors.New("failed to open TTY devices")
 			},
 			ttyNames:  []string{"tty1"},
@@ -132,8 +141,8 @@ func TestWithMultiTTY(t *testing.T) {
 		{
 			name: "MultiTTY disabled",
 			mtty: false,
-			openFn: func([]string) ([]io.Writer, error) {
-				return []io.Writer{&bytes.Buffer{}}, nil
+			openFn: func([]string) ([]*os.File, error) {
+				return []*os.File{tempTTYFile(t)}, nil
 			},
 			ttyNames:  []string{"tty1"},
 			expectErr: false,
